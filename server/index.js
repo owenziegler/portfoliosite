@@ -1,18 +1,32 @@
+//imports
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
-const password = process.env.PASSWORD
+const postRoutes = require("./routes/posts")
+require("dotenv").config()
+//express app
 const app = express()
-const PORT = 3001
-
+//uses
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect(
-    `mongodb+srv://owenziegler:${password}@cluster.iyl5ehj.mongodb.net/portfoliosite?retryWrites=true&w=majority&appName=cluster`
-)
+//mongoose connection
+mongoose.connect(process.env.MONGOKEY)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`Server is connected to database & running on port ${process.env.PORT}`)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 
-app.listen(PORT, () => {
-    console.log("SERVER IS RUNNING\n")
+//middleware
+app.use((req,res, next) => {
+    console.log(req.path, req.method)
+    next()
 })
+
+//routing
+app.use("/api/posts",postRoutes)
 
