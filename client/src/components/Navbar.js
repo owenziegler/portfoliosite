@@ -1,26 +1,17 @@
 import {Link} from 'react-router-dom'
+import './navbar.css'
 
 const Navbar = () => {
     return (
-        <header>
-            <div className="container">
-                <Link to='/'>
-                    <h1>Homepage</h1>
-                </Link>
-                <Link to='/resume'>
-                    <h1>Resume</h1>
-                </Link>
-                <Link to='/programming'>
-                    <h1>Programming</h1>
-                </Link>
-                <Link to='/engineering'>
-                    <h1>Engineering</h1>
-                </Link>
-                <Link to='/gamedev'>
-                    <h1>Gamedev</h1>
-                </Link>
-            </div>
-        </header>
+        <nav>
+            <ul>
+                <li><Link className='nav-link' to='/'>Homepage</Link></li>
+                <li><Link className='nav-link' to='/resume'>Resume</Link></li>
+                <li><Link className='nav-link' to='/programming'>Programming</Link></li>
+                <li><Link className='nav-link' to='/engineering'>Engineering</Link></li>
+                <li><Link className='nav-link' to='/gamedev'>Gamedev</Link></li>
+            </ul>
+        </nav>
     )
 }
 export default Navbar
