@@ -7,36 +7,37 @@ import Engineering from "./pages/Engineering"
 import Gamedev from "./pages/Gamedev"
 //components
 import Navbar from "./components/Navbar"
+//styles
+import "./styles/styles.css"
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <div><Navbar/></div>
-        
-        <div className="pages">
-          <Routes>
-            <Route
-              path="/"
-              element={<Home/>}
-            />
-            <Route
-              path = "/resume"
-              element={<Resume/>}
-            />
-            <Route
-              path = "/programming"
-              element={<Programming/>}
-            />
-            <Route
-              path = "/engineering"
-              element={<Engineering/>}
-            />
-            <Route
-              path = "/gamedev"
-              element={<Gamedev/>}
-            />
-          </Routes>
+        <div className="container">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Home/>}
+                />
+                <Route
+                  path = "/resume"
+                  element={<Resume/>}
+                />
+                <Route
+                  path = "/programming"
+                  element={<Programming/>}
+                />
+                <Route
+                  path = "/engineering"
+                  element={<Engineering/>}
+                />
+                <Route
+                  path = "/gamedev"
+                  element={<Gamedev/>}
+                />
+              </Routes>
         </div>
       </BrowserRouter>
     </div>

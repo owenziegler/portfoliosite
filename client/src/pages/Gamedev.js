@@ -1,6 +1,6 @@
 const Gamedev = () => {
     return (
-        <div className="gamedev">
+        <div className="content">
             <h2>gamedev</h2>
         </div>
     )
