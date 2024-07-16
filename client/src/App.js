@@ -37,6 +37,7 @@ function App() {
                   path = "/gamedev"
                   element={<Gamedev/>}
                 />
+                
               </Routes>
         </div>
       </BrowserRouter>
