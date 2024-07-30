@@ -5,6 +5,7 @@ import Resume from "./pages/Resume"
 import Programming from "./pages/Programming"
 import Engineering from "./pages/Engineering"
 import Gamedev from "./pages/Gamedev"
+import Post from "./pages/Post"
 //components
 import Navbar from "./components/Navbar"
 //styles
@@ -37,7 +38,10 @@ function App() {
                   path = "/gamedev"
                   element={<Gamedev/>}
                 />
-                
+                <Route
+                  path = "/post/*"
+                  element={<Post/>}
+                />
               </Routes>
         </div>
       </BrowserRouter>
