@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const postSchema = new Schema({
     title: {
         type:String,
-        required: true,
+        required:true,
     },
     author: {
         type:String,
@@ -14,10 +14,6 @@ const postSchema = new Schema({
     body: {
         type:String,
         required:true,
-    },
-    category: {
-        type: String,
-        required: true,
     }
 }, {timestamps: true})
 

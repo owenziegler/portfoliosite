@@ -9,7 +9,7 @@ const StringShortener = (str) => {
 }
 
 const DateParser = (str) => {
-    return parseInt(str.substring(4,6),10).toString()+"/"+parseInt(str.substring(6,8),10).toString()+"/"+parseInt(str.substring(0,4),10).toString()
+    return parseInt(str.substring(5,7),10).toString()+"/"+parseInt(str.substring(8,10),10).toString()+"/"+parseInt(str.substring(0,4),10).toString()
 }
 
 export {StringShortener, DateParser}

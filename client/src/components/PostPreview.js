@@ -5,8 +5,8 @@ import '../styles/postPreview.css'
 const PostPreview = ({post}) => {
     return (
         <div className='preview-box'>
-            <h2><Link to={"/post/"+post.id} state={{post:post}}>{post.title}</Link></h2>
-            <h3>Posted {DateParser(post.date)} by {post.author}</h3>
+            <h2><Link to={"/post/"+post._id}>{post.title}</Link></h2>
+            <h3>Posted {DateParser(post.createdAt)} by {post.author}</h3>
             <p>{StringShortener(post.body)}</p>
         </div>
     )

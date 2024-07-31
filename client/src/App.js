@@ -6,6 +6,7 @@ import Programming from "./pages/Programming"
 import Engineering from "./pages/Engineering"
 import Gamedev from "./pages/Gamedev"
 import Post from "./pages/Post"
+import ScrollToTop from './components/ScrollToTop'
 //components
 import Navbar from "./components/Navbar"
 //styles
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop/>
         <div><Navbar/></div>
         <div className="container">
               <Routes>
@@ -39,7 +41,7 @@ function App() {
                   element={<Gamedev/>}
                 />
                 <Route
-                  path = "/post/*"
+                  path = "/post/:id"
                   element={<Post/>}
                 />
               </Routes>
