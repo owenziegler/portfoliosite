@@ -10,12 +10,14 @@ import {useEffect, useState} from 'react'
 }*/
 const Home = () => {
     const [posts, setPosts] = useState(null)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         const fetchPosts = async () => {
             const response = await fetch("/api/posts")
             const json = await response.json()
             if(response.ok) {
                 setPosts(json)
+                setLoading(false)
             }
         }
         fetchPosts()
@@ -24,11 +26,8 @@ const Home = () => {
         <div className="content">
             <h2>Home</h2>
             <p>Welcome to my website.</p>
-            {posts ? (<p>posts available</p>) : (<p>no posts</p>)}
             <br/>
-            {posts && posts.map((post) => (
-                <PostPreview key={post._id} post={post}/>
-            ))}
+            {loading ? <p>Loading posts...</p> : posts.map((post) => (<PostPreview key={post._id} post={post}/>))}
         </div>
     )
 }

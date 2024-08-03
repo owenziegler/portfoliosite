@@ -9,6 +9,7 @@ import Post from "./pages/Post"
 import ScrollToTop from './components/ScrollToTop'
 //components
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 //styles
 import "./styles/styles.css"
 
@@ -46,6 +47,7 @@ function App() {
                 />
               </Routes>
         </div>
+        <footer>Copyright Owen Ziegler 2024. All rights reserved.</footer>
       </BrowserRouter>
     </div>
   );

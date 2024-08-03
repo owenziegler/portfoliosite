@@ -26,7 +26,7 @@ const Post = () => {
         ) :
         (
             <div className="content">
-                <p>no post found</p>
+                <p>Loading post...</p>
             </div>
         )
     )
