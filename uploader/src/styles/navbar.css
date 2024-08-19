@@ -1,0 +1,35 @@
+nav {
+    position:fixed;
+    background-color: skyblue;
+    width:100%;
+    height: 50px;
+    padding:0;
+    margin:0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+}
+
+nav li {
+    padding:0px;
+    margin:0;
+    float:left
+}
+
+.nav-link {
+    display:block;
+    padding: 10px 20px;
+    height: 30px;
+    color: darkslategrey;
+    text-align: center;
+    text-justify: center;
+    text-decoration:none;
+}
+
+.nav-link:hover {
+    background-color:darkcyan;
+    
+}

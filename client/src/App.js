@@ -9,7 +9,7 @@ import Post from "./pages/Post"
 import ScrollToTop from './components/ScrollToTop'
 //components
 import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+
 //styles
 import "./styles/styles.css"
 
@@ -20,32 +20,32 @@ function App() {
         <ScrollToTop/>
         <div><Navbar/></div>
         <div className="container">
-              <Routes>
-                <Route
-                  path="/"
-                  element={<Home/>}
-                />
-                <Route
-                  path = "/resume"
-                  element={<Resume/>}
-                />
-                <Route
-                  path = "/programming"
-                  element={<Programming/>}
-                />
-                <Route
-                  path = "/engineering"
-                  element={<Engineering/>}
-                />
-                <Route
-                  path = "/gamedev"
-                  element={<Gamedev/>}
-                />
-                <Route
-                  path = "/post/:id"
-                  element={<Post/>}
-                />
-              </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home/>}
+            />
+            <Route
+              path = "/resume"
+              element={<Resume/>}
+            />
+            <Route
+              path = "/programming"
+              element={<Programming/>}
+            />
+            <Route
+              path = "/engineering"
+              element={<Engineering/>}
+            />
+            <Route
+              path = "/gamedev"
+              element={<Gamedev/>}
+            />
+            <Route
+              path = "/post/:id"
+              element={<Post/>}
+            />
+          </Routes>
         </div>
         <footer>Copyright Owen Ziegler 2024. All rights reserved.</footer>
       </BrowserRouter>
