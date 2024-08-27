@@ -4,7 +4,7 @@ const {
     listImages,
     newFolder,
     deleteFolder,
-    uploadImage,
+    uploadImages,
     deleteImage
 } = require('../controllers/imageController.js')
 const router = express.Router()
@@ -17,7 +17,7 @@ router.post('/', newFolder)
 
 router.delete('/:id', deleteFolder)
 
-router.post('/:id', uploadImage)
+router.post('/:id', uploadImages)
 
 router.delete('/:id/:imageName', deleteImage)
 

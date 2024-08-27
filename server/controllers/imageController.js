@@ -65,23 +65,33 @@ const deleteFolder = async(req,res) => {
 //uploads an image to a folder in public/images
 //inputs: id of user whose folder is to be accessed, image file to be uploaded
 //outputs: none
-const uploadImage = async (req, res) => {
+const uploadImages = async (req, res) => {
     const folderPath = path.join(basePath, req.params.id) //specify path of folder to insert images
     if(!(await fs.stat(folderPath).catch(() => false))) { //if folder does not exist
         return res.status(404).json({error: "folder not found"})
     }
     const multer = require('multer') //initialize multer
-    const upload = multer({dst: 'temp/'}) //specify temp folder
+    const upload = multer({dest: 'temp/'}) //specify temp folder
 
-    upload.single('image')(req,res, async(err) => { //upload image from 'image' key in formdata to temp folder
+    upload.array('images')(req,res, async(err) => { //upload image from 'image' key in formdata to temp folder
         if (err) {
             return res.status(500).json({error: "server error"})
         }
-        const tempPath = req.file.path //path of image in temp folder
-        const targetPath = path.join(folderPath, req.file.originalname) //destination path
-
         try {
-            await fs.rename(tempPath, targetPath) //move image from temp folder to destination
+            //iterate through images
+            const promises = req.files.map(async (image) => {
+                //current path of image
+                console.log("test")
+                const tempPath = image.path
+                //desination path of image
+                console.log("test")
+                const targetPath = path.join(folderPath, image.originalname)
+                //moving image
+                console.log("test")
+                await fs.rename(tempPath, targetPath)
+            })
+            //wait for all image transfers to finish
+            await Promise.all(promises)
             res.status(201).json({message: 'upload successful'})
         }
         catch(err) {
@@ -90,7 +100,7 @@ const uploadImage = async (req, res) => {
     })
 }
 
-//deletes a specific image from a given folder
+//deletes a specific image from a given folder 
 //inputs: id of user whose folder is to be accessed, name of image to be deleted
 //outputs: none
 const deleteImage = async(req, res) => {
@@ -109,6 +119,6 @@ module.exports = {
     listImages,
     newFolder,
     deleteFolder,
-    uploadImage,
+    uploadImages,
     deleteImage
 }

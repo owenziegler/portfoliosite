@@ -5,7 +5,8 @@ const Navbar = () => {
     return (
         <nav>
             <ul>
-                <li><Link className='nav-link' to='/'>New Post</Link></li>
+                <li><Link className='nav-link' to='/'>Post List</Link></li>
+                <li><Link className='nav-link' to='/new'>New Post</Link></li>
                 <li><Link className='nav-link' to='/edit'>Edit Post</Link></li>
                 <li><Link className='nav-link' to='/delete'>Delete Post</Link></li>
             </ul>

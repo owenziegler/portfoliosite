@@ -25,9 +25,9 @@ const getPost = async(req, res) => {
 
 //create a new post
 const createPost = async(req,res) => {
-    const {title, author, body, category} = req.body
+    const {title, author, body} = req.body
     try {
-        const post = await Post.create({title, author, body, category})
+        const post = await Post.create({title, author, body})
         res.status(200).json(post) //send back OK
     } catch (error) { //if it fails
         res.status(400).json({error: error.message})

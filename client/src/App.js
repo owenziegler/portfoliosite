@@ -1,3 +1,8 @@
+/*
+  client program:
+  this program is designed for use by internet users, to view the information contained within.
+*/
+//packages
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 //pages
 import Home from "./pages/Home"

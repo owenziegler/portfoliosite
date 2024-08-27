@@ -3,7 +3,7 @@ import '../styles/styles.css'
 const DeletePost = () => {
     return (
         <div className="content">
-            <p>DeletePost</p>
+            delete post
         </div>
     )
 }

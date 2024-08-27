@@ -1,8 +1,14 @@
+/*
+  uploader program:
+  this program is designed for use by the operator(s) of the website to upload, edit, and delete posts.
+*/
+//packages
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 //components
 import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 //pages
+import PostList from './pages/PostList'
 import NewPost from './pages/NewPost'
 import EditPost from './pages/EditPost'
 import DeletePost from './pages/DeletePost.js'
@@ -18,6 +24,10 @@ function App() {
           <Routes>
             <Route
               path = '/'
+              element = {<PostList/>}
+            />
+            <Route
+              path = '/new'
               element = {<NewPost/>}
             />
             <Route

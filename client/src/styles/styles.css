@@ -26,3 +26,9 @@ footer {
     text-align:center;
     padding:20px;
 }
+
+@media (max-width: 581px) {
+    .container {
+        padding-top: 100px;
+    }
+}
