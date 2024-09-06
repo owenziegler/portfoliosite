@@ -1,10 +1,33 @@
+/*
+Engineering.js
+
+description:
+   this is the page that displays all the engineering-related posts.
+*/
+import {useState, useEffect} from 'react'
+import PostPreview from '../components/PostPreview'
 const Engineering = () => {
+    const [posts, setPosts] = useState(null)
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch ('/api/posts')
+            const json = await response.json()
+            if(response.ok) {
+                const filteredPosts = json.filter(post => post.category === 'engineering')
+                setPosts(filteredPosts)
+                setLoading(false)
+            }
+        }
+        fetchPosts()
+    },[])
     return (
         <div className="content">
-            <h2>engineering</h2>
+            <h2>Engineering</h2>
             <p>
-                This is where all my engineering stuff goes.
+                My engineering projects are listed below.
             </p>
+            {loading ? <p>Loading posts...</p> : posts.map((post) => (<PostPreview key={post._id} post={post}/>))}
         </div>
     )
 }

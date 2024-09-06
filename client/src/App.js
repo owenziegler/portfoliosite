@@ -1,6 +1,8 @@
 /*
-  client program:
-  this program is designed for use by internet users, to view the information contained within.
+App.js
+
+description:
+  this is the main component or the react app, organizing all the pages into routes using <BrowserRouter/>
 */
 //packages
 import {BrowserRouter,Routes,Route} from 'react-router-dom'

@@ -1,6 +1,11 @@
+/*
+Navbar.js
+
+description:
+Navigation bar for the top of the screen, with links to each top-level page.
+*/
 import {Link} from 'react-router-dom'
 import '../styles/navbar.css'
-
 const Navbar = () => {
     return (
         <nav>

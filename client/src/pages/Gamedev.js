@@ -1,7 +1,33 @@
+/*
+Gamedev.js
+
+description:
+    this is the page that displays all the gamedev-related posts.
+*/
+import {useState, useEffect} from 'react'
+import PostPreview from '../components/PostPreview'
 const Gamedev = () => {
+    const [posts, setPosts] = useState(null)
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch ('/api/posts')
+            const json = await response.json()
+            if(response.ok) {
+                const filteredPosts = json.filter(post => post.category === 'gamedev')
+                setPosts(filteredPosts)
+                setLoading(false)
+            }
+        }
+        fetchPosts()
+    },[])
     return (
         <div className="content">
-            <h2>gamedev</h2>
+            <h2>Game Development</h2>
+            <p>
+                All my game development projects are listed below.
+            </p>
+            {loading ? <p>Loading posts...</p> : posts.map((post) => (<PostPreview key={post._id} post={post}/>))}
         </div>
     )
 }

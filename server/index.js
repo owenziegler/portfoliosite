@@ -8,13 +8,25 @@ const imageRoutes = require("./routes/images")
 require("dotenv").config()
 //express app
 const app = express()
-//middleware
+//log request in console
 app.use((req,res, next) => {
     console.log(req.path, req.method)
     next()   
 })
-app.use(express.json())
-app.use(cors())
+
+//check if non-GET requests have a valid API key
+app.use((req,res,next) => {
+    if(req.method !== 'GET') { //if the incoming request is anything other than a GET
+        const apiKey = req.headers['api-key']
+        const realApiKey = process.env.APIKEY
+        if (apiKey && apiKey === realApiKey) next()
+        else res.status(403).json({error: 'Invalid API key'})
+    }
+    else next()
+})
+
+app.use(express.json()) //invoke express
+app.use(cors()) //invoke cors
 app.use('/public',express.static(path.join(__dirname,'public')))
 
 //mongoose connection
@@ -28,7 +40,7 @@ mongoose.connect(process.env.MONGOKEY)
     console.log(error)
 })
 
-//routing
+//routes
 app.use("/api/posts",postRoutes)
 app.use("/public/images",imageRoutes)
 

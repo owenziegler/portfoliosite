@@ -1,6 +1,7 @@
 const path = require("path")
 const fs = require("fs").promises
 
+//this needs to be updated to the virtual disk's address when moving to render
 const basePath = path.join(__dirname, "../public/images")
 
 //lists all folders in public/images

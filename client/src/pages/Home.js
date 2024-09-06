@@ -1,7 +1,12 @@
+/*
+Home.js
+
+description:
+    this is the page that introduces the user to the website, and holds links to my resume and other relevant items and profiles.
+*/
 import PostPreview from "../components/PostPreview"
 import "../styles/styles.css"
 import {useEffect, useState} from 'react'
-
 const Home = () => {
     const [posts, setPosts] = useState(null)
     const [loading, setLoading] = useState(true)

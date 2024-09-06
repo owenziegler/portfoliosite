@@ -1,7 +1,12 @@
+/*
+PostPreview.js
+
+description:
+PostPreview takes a post object and displays a preview of the post with a link to its page.
+*/
 import {Link} from 'react-router-dom'
 import {StringShortener,DateParser} from "../utils.js"
 import '../styles/postPreview.css'
-
 const PostPreview = ({post}) => {
     return (
         <div className='preview-box'>
