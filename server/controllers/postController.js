@@ -1,6 +1,11 @@
+/*
+postController.js
+
+description:
+Controller file for post-related requests.
+*/
 const Post = require ("../models/postModel")
 const mongoose = require("mongoose")
-
 //get all posts
 //inputs: none
 //outputs: array of all posts, sorted in descending order of creation

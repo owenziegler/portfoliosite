@@ -1,4 +1,9 @@
-//imports
+/*
+posts.js
+
+description:
+Route definitions for post-based requestsd
+*/
 const express = require("express")
 const Post = require("../models/postModel")
 const {
@@ -24,6 +29,7 @@ router.post('/', createPost)
 //DELETE a post
 router.delete('/:id', deletePost)
 
+//PATCH a post
 router.patch('/:id', editPost)
 
 module.exports = router
