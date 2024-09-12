@@ -11,9 +11,9 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import {DateParser,getApiUrl} from "../utils.js"
 const Post = () => {
-    const apiUrl = getApiUrl
+    const apiUrl = getApiUrl()
     const {id} = useParams()
-    console.log(id)
+    //console.log(id)
     const [post, setPost] = useState(null)
     const [images, setImages] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -40,14 +40,15 @@ const Post = () => {
         post ? (
             <div className="content">
                 <h2>{post.title}</h2>
-                <h2>{post._id}</h2>
                 <h3>Posted {DateParser(post.createdAt)} by {post.author}</h3>
                 <p>{post.body}</p>
+                {/*
                 <h3>Images gallery</h3>
                 {
                     images &&
                     images.map((image) => (<img key={image} src={`${apiUrl}/public/images/${id}/${image}`} alt={image}/>))
                 }
+                */}
             </div>
         ) :
         (
