@@ -26,10 +26,13 @@ const Gamedev = () => {
     return (
         <div className="content">
             <h2>Game Development</h2>
+            <p>The game development portion of this website is under construction. Please check back soon!</p>
+            {/*
             <p>
                 All my game development projects are listed below.
             </p>
             {loading ? <p>Loading posts...</p> : posts.map((post) => (<PostPreview key={post._id} post={post}/>))}
+            */}
         </div>
     )
 }

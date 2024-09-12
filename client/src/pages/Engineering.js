@@ -26,10 +26,13 @@ const Engineering = () => {
     return (
         <div className="content">
             <h2>Engineering</h2>
+            <p>The engineering portion of this website is under construction. Please check back soon!</p>
+            {/*
             <p>
                 My engineering projects are listed below.
             </p>
             {loading ? <p>Loading posts...</p> : posts.map((post) => (<PostPreview key={post._id} post={post}/>))}
+            */}
         </div>
     )
 }

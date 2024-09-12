@@ -24,10 +24,13 @@ const Resume = () => {
     return (
         <div className="content">
             <h2>Resume</h2>
+            <p>The resume portion of this website is under construction. Please check back soon!</p>
+            {/*
             <p>
                 Please click the button below to download a copy of my resume.
             </p>
             <button onClick={handleDownload}>Download PDF</button>
+            */}
         </div>
     )
 }
