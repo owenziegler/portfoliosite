@@ -4,10 +4,12 @@ Resume.js
 description:
     this page is where users can read and download a copy of my resume.
 */
+import { getApiUrl } from "../utils"
 const Resume = () => {
+    const apiUrl = getApiUrl()
     //based on example at https://www.geeksforgeeks.org/how-to-download-pdf-file-in-reactjs/
     const handleDownload = async () => {
-        const response = await fetch('/public/documents/resume.pdf') //fetch document
+        const response = await fetch(`${apiUrl}/public/documents/resume.pdf`) //fetch document
         const blob = await response.blob() //convert to blob
         if(response.ok) { //if the response code was 200-299
             const docURL = window.URL.createObjectURL(blob) //create a URL for the blob

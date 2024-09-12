@@ -9,8 +9,9 @@ description:
 import "../styles/styles.css"
 import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import {DateParser} from "../utils.js"
+import {DateParser,getApiUrl} from "../utils.js"
 const Post = () => {
+    const apiUrl = getApiUrl
     const {id} = useParams()
     console.log(id)
     const [post, setPost] = useState(null)
@@ -19,10 +20,10 @@ const Post = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const postResponse = await fetch(`/api/posts/${id}`) //fetch post
+                const postResponse = await fetch(`${apiUrl}/api/posts/${id}`) //fetch post
                 const postJson = await postResponse.json() //convert to json
                 setPost(postJson)
-                const imagesResponse = await fetch(`/public/images/${id}`) //fetch image names
+                const imagesResponse = await fetch(`${apiUrl}/public/images/${id}`) //fetch image names
                 const imagesJson = await imagesResponse.json() //convert to json
                 setImages(imagesJson)
             }
@@ -45,7 +46,7 @@ const Post = () => {
                 <h3>Images gallery</h3>
                 {
                     images &&
-                    images.map((image) => (<img key={image} src={`${process.env.REACT_APP_API_URL}/public/images/${id}/${image}`} alt={image}/>))
+                    images.map((image) => (<img key={image} src={`${apiUrl}/public/images/${id}/${image}`} alt={image}/>))
                 }
             </div>
         ) :

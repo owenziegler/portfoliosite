@@ -7,12 +7,14 @@ description:
 import PostPreview from "../components/PostPreview"
 import "../styles/styles.css"
 import {useEffect, useState} from 'react'
+import { getApiUrl } from "../utils"
 const Home = () => {
+    const apiUrl = getApiUrl()
     const [posts, setPosts] = useState(null)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch("/api/posts")
+            const response = await fetch(`${apiUrl}/api/posts`)
             const json = await response.json()
             if(response.ok) {
                 setPosts(json)

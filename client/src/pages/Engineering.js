@@ -6,12 +6,14 @@ description:
 */
 import {useState, useEffect} from 'react'
 import PostPreview from '../components/PostPreview'
+import { getApiUrl } from '../utils'
 const Engineering = () => {
+    const apiUrl = getApiUrl()
     const [posts, setPosts] = useState(null)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch ('/api/posts')
+            const response = await fetch (`${apiUrl}/api/posts`)
             const json = await response.json()
             if(response.ok) {
                 const filteredPosts = json.filter(post => post.category === 'engineering')
