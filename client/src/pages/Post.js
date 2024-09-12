@@ -23,9 +23,12 @@ const Post = () => {
                 const postResponse = await fetch(`${apiUrl}/api/posts/${id}`) //fetch post
                 const postJson = await postResponse.json() //convert to json
                 setPost(postJson)
+                //commmented out until image functionality can be fixed
+                /*
                 const imagesResponse = await fetch(`${apiUrl}/public/images/${id}`) //fetch image names
                 const imagesJson = await imagesResponse.json() //convert to json
                 setImages(imagesJson)
+                */
             }
             catch(error) {
                 
@@ -41,7 +44,7 @@ const Post = () => {
             <div className="content">
                 <h2>{post.title}</h2>
                 <h3>Posted {DateParser(post.createdAt)} by {post.author}</h3>
-                <p>{post.body}</p>
+                <p style={{whiteSpace:'pre-line'}}>{post.body}</p> {/*whiteSpace:'pre-line' enables recognition of \n*/}
                 {/*
                 <h3>Images gallery</h3>
                 {
