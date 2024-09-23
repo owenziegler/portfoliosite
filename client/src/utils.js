@@ -35,6 +35,7 @@ const getApiUrl = () => {
     return process.env.NODE_ENV === 'production' //if the environment is production...
         ? process.env.REACT_APP_PRODUCTION_API_URL //return the production API URL
         : process.env.REACT_APP_DEVELOPMENT_API_URL //return the development API URL
+   //return process.env.REACT_APP_PRODUCTION_API_URL
 }
 
 export {
