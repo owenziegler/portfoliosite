@@ -17,7 +17,8 @@ const Home = () => {
             const response = await fetch(`${apiUrl}/api/posts`)
             const json = await response.json()
             if(response.ok) {
-                setPosts(json)
+                const filteredPosts = json.filter(post => post.category === 'home')
+                setPosts(filteredPosts)
                 setLoading(false)
             }
         }

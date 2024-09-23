@@ -27,6 +27,10 @@ footer {
     padding:20px;
 }
 
+p {
+    white-space:pre-line;
+}
+
 @media (max-width: 581px) {
     .container {
         padding-top: 100px;

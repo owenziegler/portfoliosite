@@ -44,7 +44,7 @@ const Post = () => {
             <div className="content">
                 <h2>{post.title}</h2>
                 <h3>Posted {DateParser(post.createdAt)} by {post.author}</h3>
-                <p style={{whiteSpace:'pre-line'}}>{post.body}</p> {/*whiteSpace:'pre-line' enables recognition of \n*/}
+                <p>{post.body}</p>
                 {/*
                 <h3>Images gallery</h3>
                 {

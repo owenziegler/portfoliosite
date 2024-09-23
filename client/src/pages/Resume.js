@@ -4,6 +4,7 @@ Resume.js
 description:
     this page is where users can read and download a copy of my resume.
 */
+import '../styles/styles.css'
 import { getApiUrl } from "../utils"
 const Resume = () => {
     const apiUrl = getApiUrl()
@@ -24,13 +25,15 @@ const Resume = () => {
     return (
         <div className="content">
             <h2>Resume</h2>
-            <p>The resume portion of this website is under construction. Please check back soon!</p>
-            {/*
             <p>
                 Please click the button below to download a copy of my resume.
             </p>
             <button onClick={handleDownload}>Download PDF</button>
-            */}
+            <h3>Other useful information and links:</h3>
+            <p>
+                E-Mail: owendziegler@proton.me<br/>
+                LinkedIn: <a href="https://www.linkedin.com/in/owen-ziegler-561456254" target='_blank'>My LinkedIn profile</a>
+            </p>
         </div>
     )
 }
