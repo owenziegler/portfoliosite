@@ -9,7 +9,9 @@ description:
 import "../styles/styles.css"
 import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import {DateParser,getApiUrl} from "../utils.js"
+import {dateParser,getApiUrl} from "../utils.js"
+import Markdown from 'react-markdown'
+
 const Post = () => {
     const apiUrl = getApiUrl()
     const {id} = useParams()
@@ -43,8 +45,14 @@ const Post = () => {
         post ? (
             <div className="content">
                 <h2>{post.title}</h2>
-                <h3>Posted {DateParser(post.createdAt)} by {post.author}</h3>
-                <p>{post.body}</p>
+                <h3>
+                    Posted {dateParser(post.createdAt)} by {post.author}
+                    {
+                        (post.createdAt != post.updatedAt) ?
+                        <div>Last updated {dateParser(post.updatedAt)}</div> : null
+                    }
+                </h3>
+                <Markdown>{post.body}</Markdown>
                 {/*
                 <h3>Images gallery</h3>
                 {

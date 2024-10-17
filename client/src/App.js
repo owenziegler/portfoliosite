@@ -13,9 +13,11 @@ import Programming from "./pages/Programming"
 import Engineering from "./pages/Engineering"
 import Gamedev from "./pages/Gamedev"
 import Post from "./pages/Post"
+import Licenses from "./pages/Licenses"
 import ScrollToTop from './components/ScrollToTop'
 //components
 import Navbar from "./components/Navbar"
+import {Link} from "react-router-dom"
 
 //styles
 import "./styles/styles.css"
@@ -52,9 +54,16 @@ function App() {
               path = "/post/:id"
               element={<Post/>}
             />
+            <Route
+              path = "/licenses"
+              element={<Licenses/>}
+            />
           </Routes>
         </div>
-        <footer>Copyright Owen Ziegler 2024. All rights reserved.</footer>
+        <footer>
+          Copyright Owen Ziegler 2024. All rights reserved.
+          View <Link to="/licenses" className={'footer-link'}>licenses for third-party software</Link>
+        </footer>
       </BrowserRouter>
     </div>
   );

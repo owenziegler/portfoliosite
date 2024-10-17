@@ -17,7 +17,10 @@ const Home = () => {
             const response = await fetch(`${apiUrl}/api/posts`)
             const json = await response.json()
             if(response.ok) {
-                const filteredPosts = json.filter(post => post.category === 'home')
+                //if in a non-production environment, hidden dev posts are displayed
+                const allowedCategories = (process.env.NODE_ENV === 'production') ? ['home'] : ['home','dev']
+                //filter posts down to allowed categories
+                const filteredPosts = json.filter(post => allowedCategories.includes(post.category))
                 setPosts(filteredPosts)
                 setLoading(false)
             }
