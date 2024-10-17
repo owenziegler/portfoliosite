@@ -27,6 +27,22 @@ footer {
     padding:20px;
 }
 
+.footer-link:link{
+    color:lightgray;
+}
+
+.footer-link:visited {
+    color:lightgray;
+}
+
+.footer-link:hover {
+    color:darkcyan;
+}
+
+.footer-link:active {
+    color:darkcyan;
+}
+
 p {
     white-space:pre-line;
 }
